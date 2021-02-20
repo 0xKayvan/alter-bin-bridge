@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000
 
 express()
   .get('/', (req, res) => res.send('works'))
-  .get('/:pricingMarketSymbol', async (req, res) => {
+  .get('/binance/get-market/:pricingMarketSymbol', async (req, res) => {
     const requestConfig = {
       url: `https://api.binance.com/api/v3/trades?symbol=${req.params.pricingMarketSymbol}&limit=1`
     }
