@@ -1,14 +1,9 @@
 const express = require('express')
 const axios = require('axios')
-const path = require('path')
-const { RSA_NO_PADDING } = require('constants')
 const PORT = process.env.PORT || 5000
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+  .get('/', (req, res) => res.send('works'))
   .get('/:pricingMarketSymbol', async (req, res) => {
     const requestConfig = {
       url: `https://api.binance.com/api/v3/trades?symbol=${req.params.pricingMarketSymbol}&limit=1`
