@@ -6,6 +6,7 @@ express()
   .get('/', (req, res) => res.send('works'))
   .get('/binance/get-market/:pricingMarketSymbol', async (req, res) => {
     const url = `https://api.binance.com/api/v3/ticker/price?symbol=${req.params.pricingMarketSymbo}`
+    console.log(url)
     const requestConfig = {
       // url: `https://api.binance.com/api/v3/trades?symbol=${req.params.pricingMarketSymbol}&limit=1`,
       url: url
@@ -14,6 +15,7 @@ express()
       const response = await axios(requestConfig)
       res.json(response)
     } catch (err) {
+      console.log(err.message)
       res.sendStatus(400)
     }
   })
