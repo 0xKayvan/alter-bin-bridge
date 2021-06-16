@@ -7,7 +7,7 @@ express()
   .get('/binance/get-market/:pricingMarketSymbol', async (req, res) => {
     const requestConfig = {
       // url: `https://api.binance.com/api/v3/trades?symbol=${req.params.pricingMarketSymbol}&limit=1`,
-      url: `https://api.binance.com/api/v3/ticker/price?symbol=${pricingMarketSymbol}`
+      url: `https://api.binance.com/api/v3/ticker/price?symbol=${req.params.pricingMarketSymbo}`
     }
     try {
       const response = await axios(requestConfig)
@@ -16,7 +16,7 @@ express()
       res.sendStatus(400)
     }
   })
-  .get('/binance/get-fees/:pricingMarketSymbol', async (req, res) => {
+  .get('/binance/get-fees', async (req, res) => {
     const timestamp = Date.now()
     const paramsObject = {'timestamp': timestamp}
     const binanceApiKey = process.env.BINANCE_SPOT_MARKET_API_KEY
