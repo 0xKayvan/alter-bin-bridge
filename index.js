@@ -1,4 +1,5 @@
 const express = require('express')
+import CryptoJS from 'crypto-js'
 const axios = require('axios')
 const PORT = process.env.PORT || 5000
 
