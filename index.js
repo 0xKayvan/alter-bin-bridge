@@ -13,7 +13,7 @@ express()
     }
     try {
       const response = await axios(requestConfig)
-      res.json(response)
+      res.send(response)
     } catch (err) {
       console.log(err.message)
       res.sendStatus(400)
