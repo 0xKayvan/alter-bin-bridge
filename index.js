@@ -38,7 +38,7 @@ express()
     }
 
     const response = await axios(requestConfig)
-    res.json(response)
+    res.json(response.data)
     // const result = response?.data
     // if (result && Array.isArray(result) && result.length > 0) {
       // return result
