@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const CryptoJS = require('crypto-js')
 const axios = require('axios')
